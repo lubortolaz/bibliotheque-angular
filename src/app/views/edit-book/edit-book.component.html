@@ -1,0 +1,14 @@
+<!-- Attention ! on attend d'avoir un produit -->
+<div *ngIf="book" class="row col-6 card shadow mx-auto">
+  <div class="card-body text-center">
+    <h5 class="card-title">Modifier produit</h5>
+
+    <app-book-form
+      [bookToEdit]="book"
+      btnLabel="MODIFIER"
+      (formSubmitted)="onSubmitEditBook($event)"
+    ></app-book-form>
+
+    <button routerLink="/books" class="btn btn-dark mt-2">Retour</button>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="d-flex justify-content-center my-3">
+    <button
+      (click)="onClickBtnAllStatus(true)"
+      type="button"
+      class="btn btn-sm btn-outline-dark mx-2"
+    >
+      Marquer tous comme "lus"
+    </button>
+    <button
+      (click)="onClickBtnAllStatus(false)"
+      type="button"
+      class="btn btn-sm btn-outline-dark mx-2"
+    >
+      Marquer tous comme "non lus"
+    </button>
+  </div>
+
+  <table class="table table-sm table-striped table-hover mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Auteur</th>
+        <th scope="col">État</th>
+        <th scope="col" colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; let index = index">
+        <th scope="row">{{ book.id }}</th>
+        <td>{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.status ? "Lu" : "Non lu" }}</td>
+        <td>
+          <button
+            (click)="onClickBtnStatus(index)"
+            type="button"
+            class="btn btn-sm btn-link mx-2"
+          >
+            {{ book.status ? "Marquer comme 'non lu'" : "Marquer comme 'lu'" }}
+          </button>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-success mx-2"
+            [routerLink]="['/book', book.id]"
+          >
+            Détails
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-primary mx-2"
+            [routerLink]="['/book', 'edit', book.id]"
+          >
+            Modifier
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger mx-2"
+            (click)="onClickBtnDelete(index)"
+          >
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

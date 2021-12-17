@@ -1,0 +1,13 @@
+<div class="container position-relative">
+  <h1 class="text-center py-5">Ma bibliothèque</h1>
+
+  <div *ngIf="isConnected" class="position-absolute top-0 end-0">
+    <button class="btn btn-primary mx-2 my-2" [routerLink]="['/book', 'new']">
+      Ajouter un livre
+    </button>
+
+    <button class="btn btn-dark mx-2 my-2" (click)="onClickSignout()">
+      Déconnexion
+    </button>
+  </div>
+</div>

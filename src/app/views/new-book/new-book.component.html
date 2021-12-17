@@ -1,0 +1,12 @@
+<div class="row col-6 card shadow mx-auto">
+  <div class="card-body text-center">
+    <h5 class="card-title">Ajouter un livre</h5>
+
+    <app-book-form
+      btnLabel="AJOUTER"
+      (formSubmitted)="onSubmitNewBook($event)"
+    ></app-book-form>
+
+    <button routerLink="/books" class="btn btn-dark mt-2">RETOUR</button>
+  </div>
+</div>
